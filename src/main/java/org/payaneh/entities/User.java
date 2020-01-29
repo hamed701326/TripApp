@@ -1,13 +1,16 @@
 package org.payaneh.entities;
 
+import org.payaneh.config.PersistentEntity;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
+import javax.persistence.Persistence;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class User {
+public class User extends PersistentEntity<Integer> {
     private String userName,password,firstName,lastName;
     private int nationalId;
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)

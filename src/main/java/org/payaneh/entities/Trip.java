@@ -1,4 +1,54 @@
 package org.payaneh.entities;
 
-public class Trip {
+import org.payaneh.config.PersistentEntity;
+
+import javax.persistence.Entity;
+import java.util.Date;
+@Entity
+public class Trip extends PersistentEntity<Integer> {
+    private String destination,origin;
+    private Date tripDate;
+    private String tripTime;
+
+    public Trip() {
+    }
+
+    public Trip(String destination, String origin, Date tripDate, String tripTime) {
+        this.destination = destination;
+        this.origin = origin;
+        this.tripDate = tripDate;
+        this.tripTime = tripTime;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public Date getTripDate() {
+        return tripDate;
+    }
+
+    public void setTripDate(Date tripDate) {
+        this.tripDate = tripDate;
+    }
+
+    public String getTripTime() {
+        return tripTime;
+    }
+
+    public void setTripTime(String tripTime) {
+        this.tripTime = tripTime;
+    }
 }
