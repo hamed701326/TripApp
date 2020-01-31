@@ -7,13 +7,13 @@ import java.util.Date;
 @Entity
 public class Trip extends PersistentEntity<Integer> {
     private String destination,origin;
-    private Date tripDate;
+    private String tripDate;
     private String tripTime;
 
     public Trip() {
     }
 
-    public Trip(String destination, String origin, Date tripDate, String tripTime) {
+    public Trip(String destination, String origin, String tripDate, String tripTime) {
         this.destination = destination;
         this.origin = origin;
         this.tripDate = tripDate;
@@ -36,11 +36,11 @@ public class Trip extends PersistentEntity<Integer> {
         this.origin = origin;
     }
 
-    public Date getTripDate() {
+    public String getTripDate() {
         return tripDate;
     }
 
-    public void setTripDate(Date tripDate) {
+    public void setTripDate(String tripDate) {
         this.tripDate = tripDate;
     }
 

@@ -7,15 +7,20 @@
     background: url(images.jpg);
     background-size: cover;">
     <form action="viewtrip.jsp">
-    <div >
-        Origin:<input type="text" name="origin">
-    </div>
-    <div>
-        Destination <input type="text" name="destination">
-    </div>
-    <div>
+        <datalist id="cities">
+            <option value="tehran">
+            <option value="kashan">
+            <option value="esfehan"><option value="shiraz"><option value="tabriz">
+            <option value="kerman"><option value="hormozgan">
+        </datalist>
+
+        Origin:<input list="cities" name="origin" placeholder="kerman" required="required">
+
+
+        Destination <input list="cities" name="destination" placeholder="tehran" required="required">
+
         Date:<input type="date" name="date" min=<%=new Date()%>><br><br>
-    </div>
+
         <input type="submit" name="" value="search">
     </form>
 

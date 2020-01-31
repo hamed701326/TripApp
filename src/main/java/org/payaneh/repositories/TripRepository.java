@@ -33,7 +33,7 @@ public class TripRepository extends CrudRepository<Trip, Integer> {
 
     public List<Trip> findAll(String origin,
                               String destination,
-                              Date date)
+                              String date)
     {
         Session session=getSessionFactory().openSession();
         session.beginTransaction();
