@@ -3,7 +3,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">14Tir1375</property>
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost/essays?createDatabaseIfNotExist=true
+            jdbc:mysql://localhost/payaneh?createDatabaseIfNotExist=true
         </property>
         <property name="hibernate.connection.driver_class">
             com.mysql.cj.jdbc.Driver
