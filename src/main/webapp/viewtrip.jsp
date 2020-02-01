@@ -1,12 +1,8 @@
 <%@ page import="org.payaneh.repositories.TripRepository" %>
 <%@ page import="org.payaneh.entities.Trip" %>
-<%@ page import="java.util.List" %><%--
-  Created by IntelliJ IDEA.
-  User: Hamed Sadeghi
-  Date: 1/31/2020
-  Time: 10:13 AM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.List" %>
+
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,6 +10,7 @@
     <link rel="stylesheet" href="viewtrip.css">
 </head>
 <body>
+
     <%!
         public String createRow( int id,String destination,String origin,String time) {
              return
@@ -23,20 +20,27 @@
         "            <td>" +origin+ "</td>\n" +
         "            <td >"+time+"</td>\n" +
         "           <td>\n"
-        +buyLink()+
+        +buyLink(id)+
          "           </td>\n" +
          "        </tr>";
 
         }
     %>
+    <!--
+    <script language="JavaScript">
+        function setId(id){
+            document.getElementById("tripID").value=id;
+        }
+    </script>
+    -->
     <%!
-
-        public String buyLink() {
-         return "<a href='finalbuy.jsp'>buy</a>";
-
-    }
+        public String buyLink(int id) {
+        return "<a href='finalbuy.jsp?tripId="+id+"' ><input type=\"submit\" value=\"buy\" " +
+                " ></a>";
+        }
 
     %>
+
 
     <%
 
@@ -48,10 +52,16 @@
                 List<Trip> trips= tripRepo.findAll(origin,destination, date);
 
     %>
-    <div>Ticket at this date <%=date%></div>
+    <%=origin+" "+destination+""+date%>
     <div>
         <table class="table">
             <thead>
+            <tr>
+                <th width="60%">way: <%=origin%> - <%=destination%></th>
+                <th width="40%">Moving Date:<%=date%> </th>
+            </tr>
+
+
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">destination</th>
@@ -62,11 +72,16 @@
             </thead>
             <tbody id="table-body">
                  <%
-                  out.println(   createRow(1,
-                             "tehran",
-                             "mashad",
-                             "2020/1/30")
-                     ) ;
+                    for (int i=0;i<trips.size();i++){
+                        Trip trip=trips.get(i);
+                        out.println(
+                                createRow(
+                                        trip.getId(),
+                                        trip.getDestination(),
+                                        trip.getOrigin(),
+                                        trip.getTripTime()));
+                    }
+
                  %>
             </tbody>
         </table>

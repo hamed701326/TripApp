@@ -19,6 +19,13 @@ public abstract class CrudRepository<Entity,Id extends Serializable> {
         session.close();
         return id;
     }
+    public void save(List<Entity> entities){
+        session=getSessionFactory().openSession();
+        session.beginTransaction();
+        entities.forEach(entity->session.save(entity));
+        session.getTransaction().commit();
+        session.close();
+    }
     public void update(Entity entity){
         session=getSessionFactory().openSession();
         session.beginTransaction();

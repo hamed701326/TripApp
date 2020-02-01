@@ -9,8 +9,9 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 public class User extends PersistentEntity<Integer> {
-    private String userName,password,firstName,lastName;
+    private String userName,password,firstName,lastName,gender;
     private int nationalId;
+
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private Set<Ticket> ticketSet=new HashSet<>();
     public User() {
@@ -22,6 +23,14 @@ public class User extends PersistentEntity<Integer> {
         this.firstName = firstName;
         this.lastName = lastName;
         this.nationalId = nationalId;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getUserName() {

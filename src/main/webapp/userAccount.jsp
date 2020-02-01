@@ -22,7 +22,7 @@
     <% TicketRepository ticketRepo=TicketRepository.getTicketRep();
 
     %>
-    <div class="menu">Buying Ticket</div>
+    <div class="menu"><a href="buyticket.jsp">Buying Ticket</a></div>
 
     <div class="menu">View Tickets</div>
 
